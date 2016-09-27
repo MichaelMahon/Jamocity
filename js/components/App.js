@@ -16,11 +16,11 @@ const App = () => (
 
     <Grid>
         <Row>
-            <Panel><h3>Top Panel Here</h3></Panel>
+            <Panel><h3><NavBar/></h3></Panel>
         </Row>
         <Row>
              <Col xs={2} md={3}>
-                    <Panel><NavBar /></Panel>
+                    <Panel><SearchPageForm/></Panel>
              </Col>
              <Col xs={4} md={9}>
                     <Panel><SearchPageContainer/></Panel>

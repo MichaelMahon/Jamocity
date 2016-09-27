@@ -25,7 +25,7 @@ const NavBar = React.createClass({
 
 
                 <Form inline>
-                    <Image src="/img/test.png" thumbnail />
+                    <Image src="/JC.png" thumbnail />
 
                     {/*<FormGroup controlId="formInlineEmail">*/}
                         {/*<ControlLabel>Email</ControlLabel>*/}
