@@ -21,7 +21,7 @@ var SearchPageList = React.createClass({
      return (
 
          <ListGroupItem >
-            <JCProd name={jcProd.name} price={jcProd.price} href = {jcProd.href}/>
+            <JCProd key={jcProd.id} mfg={jcProd.mfg} name={jcProd.name} web={jcProd.web} price={jcProd.price} condition= {jcProd.condition} href = {jcProd.href ? jcProd.href : "./photo_not_available.png"}/>
          </ListGroupItem>
      );
    });
@@ -39,7 +39,6 @@ var SearchPage = React.createClass({
 
         return (
             <div className="commentBox">
-                {this.props.dataString}
                 <ListGroup>
                 <SearchPageList data={this.props.dataObj} />
                 </ListGroup>

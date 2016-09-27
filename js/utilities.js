@@ -10,18 +10,18 @@ var reverb =  {"total":130,"current_page":1,"total_pages":6,"listings":[{"id":25
 export function reverbListings2JC(listingObj) {
     var JCProdArray = [];
 
-    var dummy = new Object();
-    dummy.name = "Fender Strat";
-    dummy.price = "$700.00"
-
-    JCProdArray.push(dummy);
 
     for (var key in listingObj) {
         var listing = listingObj[key];
         var JCProd = new Object();
-        JCProd.name = listing.make + " : " + listing.model;
+        JCProd.id = listing.id;
+        JCProd.mfg = listing.make;
+        JCProd.name = listing.model;
         JCProd.price = listing.price.amount;
-        JCProd.href = listing._links.photo.href
+        JCProd.href = listing._links.photo.href;
+        JCProd.web = listing._links.web.href;
+        JCProd.condition = listing.condition;
+
         JCProdArray.push(JCProd);
 
     }
