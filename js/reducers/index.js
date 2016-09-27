@@ -2,13 +2,15 @@ import { combineReducers } from 'redux'
 import todos from './todos'
 import visibilityFilter from './visibilityFilter'
 import currentProduct from './currentProduct'
-import currentSearch from './currentSearch'
+import currentSearch from './userName'
+import searches from './searches'
 
 const todoApp = combineReducers({
   todos,
   visibilityFilter,
   currentProduct,
-  currentSearch
+  currentSearch,
+  searches
 })
 
 export default todoApp

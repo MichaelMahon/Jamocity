@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 //import { addTodo } from '../actions'
 import { loadProducts } from '../actions'
+import { addSearch } from '../actions'
 import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
 
 
@@ -15,7 +16,10 @@ const NavBar = React.createClass({
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.username("Malificent")
+        // put some search keys in searchPanel
+        this.props.addSearch("keeley", {})
+
+        //this.props.username("Malificent")
     },
 
 
@@ -46,7 +50,7 @@ const NavBar = React.createClass({
                          onClick={this.handleSubmit}>Enter User
                     </Button>
 
-                    <Label> state.currentProduct {this.props.userName} </Label>
+                    <Label> state.currentProduct {this.props.userName} state.searches {this.props.searches.searches[0].searchKey}</Label>
 
                 </Form>
 
@@ -59,13 +63,15 @@ var mapStateToProps = function(state){
      console.log("FormExample mapstatetoprops");
     console.log(state.currentProduct)
 
-    return {userName :state.currentProduct};
+    return {userName :state.currentProduct,
+            searches: state.searches
+    };
 };
 
 var mapDispatchToProps = function(dispatch){
     return {
         username: function(username){ dispatch(loadProducts(username)); },
-
+        addSearch: function(searchKey, results){ dispatch(addSearch(searchKey, results)); }
     }
 };
 
