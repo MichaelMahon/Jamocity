@@ -2,10 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 //import { addTodo } from '../actions'
 import { loadProducts } from '../actions'
-import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button} from 'react-bootstrap';
+import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
 
 
-const FormExample = React.createClass({
+const NavBar = React.createClass({
 
 
     handleUserNameChange(e) {
@@ -25,22 +25,29 @@ const FormExample = React.createClass({
 
 
                 <Form inline>
+                    <Image src="/img/test.png" thumbnail />
+
+                    {/*<FormGroup controlId="formInlineEmail">*/}
+                        {/*<ControlLabel>Email</ControlLabel>*/}
+                        {/*{' '}*/}
+                        {/*<FormControl type="email" placeholder="jane.doe@example.com" />*/}
+                    {/*</FormGroup>*/}
+                    {' '}
+
                     <FormGroup controlId="formInlineName">
-                        <ControlLabel>Name</ControlLabel>
+                        <ControlLabel>User Name</ControlLabel>
                         {' '}
                         <FormControl type="text" placeholder={this.props.userName} onChange={this.handleUserNameChange}
                         />
                     </FormGroup>
                     {' '}
-                    <FormGroup controlId="formInlineEmail">
-                        <ControlLabel>Email</ControlLabel>
-                        {' '}
-                        <FormControl type="email" placeholder="jane.doe@example.com" />
-                    </FormGroup>
-                    {' '}
+
                     <Button type="submit"
-                        onClick={this.handleSubmit}>
+                         onClick={this.handleSubmit}>Enter User
                     </Button>
+
+                    <Label> state.currentProduct {this.props.userName} </Label>
+
                 </Form>
 
         );
@@ -64,4 +71,4 @@ var mapDispatchToProps = function(dispatch){
 
 
 //export default FormExample
-module.exports = connect(mapStateToProps,mapDispatchToProps )(FormExample);
+module.exports = connect(mapStateToProps,mapDispatchToProps )(NavBar);

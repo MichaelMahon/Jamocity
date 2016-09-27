@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
+import NavBar from '../containers/NavBar'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import ProductPage from './ProductPage'
 import ProductPageForm from '../containers/ProductPageForm'
@@ -10,7 +10,7 @@ import SearchPageContainer from '../containers/SearchPageContainer'
 
 const App = () => (
     <div>
-        <AddTodo />
+        <NavBar />
         <ProductPageForm />
         <SearchPageForm />
         <VisibleTodoList />
