@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 //import { addTodo } from '../actions'
 import { loadProducts } from '../actions'
-import { addSearch } from '../actions'
+//import { addSearch } from '../actions'
 import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
 
 
@@ -17,7 +17,7 @@ const NavBar = React.createClass({
     handleSubmit(e) {
         e.preventDefault();
         // put some search keys in searchPanel
-        this.props.addSearch("keeley", {reverb: "some json here"})
+        //this.props.addSearch("keeley", {reverb: "some json here"})
 
         //this.props.username("Malificent")
     },
@@ -71,7 +71,7 @@ var mapStateToProps = function(state){
 var mapDispatchToProps = function(dispatch){
     return {
         username: function(username){ dispatch(loadProducts(username)); },
-        addSearch: function(searchKey, results){ dispatch(addSearch(searchKey, results)); }
+        //addSearch: function(searchKey, results){ dispatch(addSearch(searchKey, results)); }
     }
 };
 

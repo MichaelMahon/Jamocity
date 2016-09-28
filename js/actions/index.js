@@ -16,14 +16,14 @@ export const loadProducts = (text) => {
   }
 }
 
-export const addSearch = (searchKey, eBaysearchResults, reverbResults) => {
-  return {
-    type: 'ADD_SEARCH',
-    searchKey: searchKey,
-    eBaysearchResults: eBaysearchResults,
-    reverbResults: reverbResults
-  }
-}
+// export const addSearch = (searchKey, eBaysearchResults, reverbResults) => {
+//   return {
+//     type: 'ADD_SEARCH',
+//     searchKey: searchKey,
+//     eBaysearchResults: eBaysearchResults,
+//     reverbResults: reverbResults
+//   }
+// }
 
 export const setVisibilityFilter = (filter) => {
   return {
@@ -49,15 +49,14 @@ function requestPosts(subreddit) {
 }
 
 //export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-function receivePosts(subreddit, json) {
+function receivePosts(searchKey, json) {
   console.log("receivePosts Entry");
    var JCPosts = reverbListings2JC(json.listings);
 
   return {
-    type: 'RECEIVE_POSTS',
-    subreddit,
-    posts: JCPosts,
-    receivedAt: Date.now()
+    type: 'RECEIVE_REVERB_POSTS',
+    searchKey: searchKey,
+    reverbsearchResults: JCPosts
   }
 }
 
@@ -109,10 +108,9 @@ function receiveEbayPosts(product, json) {
    console.log(EBPosts);
 
   return {
-    type: 'RECEIVE_POSTS',
-    product,
-    posts: EBPosts,
-    receivedAt: Date.now()
+    type: 'RECEIVE_EBAY_POSTS',
+    searchKey: product,
+    eBaysearchResults: EBPosts
   }
   
 }

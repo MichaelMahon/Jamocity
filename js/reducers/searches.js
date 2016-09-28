@@ -1,14 +1,29 @@
 
 
-function searches(state = {searches:[{searchKey:"fuzz", searchResults: {}}]}, action) {
+function searches(state = {searches:[{searchKey:"fuzz", eBaysearchResults: {}, reverbsearchResults: {}}], currentsearch: {}}, action) {
   switch (action.type) {
-    case 'ADD_SEARCH':
+    case 'RECEIVE_EBAY_POSTS':
+      return Object.assign({}, state, {
+        currentsearch: {
+          searchKey: action.searchKey,
+          eBaysearchResults: action.eBaysearchResults
+        },
+        searches: [
+          ...state.searches,
+          {
+            searchKey: action.searchKey,
+            eBaysearchResults: action.eBaysearchResults
+          }
+        ]
+      })
+
+    case 'RECEIVE_REVERB_POSTS':
       return Object.assign({}, state, {
         searches: [
           ...state.searches,
           {
             searchKey: action.searchKey,
-            searchResults: action.searchResults
+            reverbsearchResults: action.reverbsearchResults
           }
         ]
       })

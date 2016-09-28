@@ -17,8 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 
 
   return {
-    dataString: JSON.stringify(state.currentSearch.items),
-    dataObj: items
+    dataString: JSON.stringify(state.currentSearch),
+    dataObj: state.currentSearch
 
   }
 }

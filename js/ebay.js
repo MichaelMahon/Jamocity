@@ -17,7 +17,7 @@ export function ebayListings2JC(listingObj) {
         JCProdArray.push(JCProd);
 
     }
-    return (JCProd);
+    return (JCProdArray);
 
 }
 
