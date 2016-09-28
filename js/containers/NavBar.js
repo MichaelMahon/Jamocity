@@ -17,7 +17,7 @@ const NavBar = React.createClass({
     handleSubmit(e) {
         e.preventDefault();
         // put some search keys in searchPanel
-        this.props.addSearch("keeley", {})
+        this.props.addSearch("keeley", {reverb: "some json here"})
 
         //this.props.username("Malificent")
     },

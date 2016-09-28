@@ -13,11 +13,12 @@ export const loadProducts = (text) => {
   }
 }
 
-export const addSearch = (searchKey, searchResults) => {
+export const addSearch = (searchKey, eBaysearchResults, reverbResults) => {
   return {
     type: 'ADD_SEARCH',
     searchKey: searchKey,
-    searchResults
+    eBaysearchResults: eBaysearchResults,
+    reverbResults: reverbResults
   }
 }
 
