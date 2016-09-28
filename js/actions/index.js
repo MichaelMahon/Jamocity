@@ -16,11 +16,11 @@ export const loadProducts = (text) => {
   }
 }
 
-export const addTodo = (text) => {
+export const addSearch = (searchKey, searchResults) => {
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    type: 'ADD_SEARCH',
+    searchKey: searchKey,
+    searchResults
   }
 }
 
