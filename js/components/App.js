@@ -23,11 +23,8 @@ const App = () => (
                     <Panel><SearchPageForm/></Panel>
              </Col>
              <Col xs={4} md={9}>
-                    <Panel><SearchPageContainer/></Panel>
+                    <Panel bsClass="panel listingPanel"><SearchPageContainer/></Panel>
              </Col>
-        </Row>
-        <Row>
-            <Panel><h3>Bottom Panel Here</h3></Panel>
         </Row>
     </Grid>
 
