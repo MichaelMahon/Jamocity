@@ -21421,7 +21421,7 @@
 
 	var _userName2 = _interopRequireDefault(_userName);
 
-	var _searches = __webpack_require__(188);
+	var _searches = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./searches\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _searches2 = _interopRequireDefault(_searches);
 
@@ -21580,7 +21580,6 @@
 	      });
 	    case 'REQUEST_POSTS':
 	      return Object.assign({}, state, {
-	        isFetching: true,
 	        didInvalidate: false
 	      });
 	    case 'RECEIVE_POSTS':
@@ -21600,54 +21599,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("c:\\jamocity\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "userName.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("c:\\jamocity\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("c:\\jamocity\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	function searches() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? { searches: [{ searchKey: "fuzz", eBaysearchResults: {}, reverbsearchResults: {} }], currentsearch: {} } : arguments[0];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case 'RECEIVE_EBAY_POSTS':
-	      return Object.assign({}, state, {
-	        currentsearch: {
-	          searchKey: action.searchKey,
-	          eBaysearchResults: action.eBaysearchResults
-	        },
-	        searches: [].concat(_toConsumableArray(state.searches), [{
-	          searchKey: action.searchKey,
-	          eBaysearchResults: action.eBaysearchResults
-	        }])
-	      });
-
-	    case 'RECEIVE_REVERB_POSTS':
-	      return Object.assign({}, state, {
-	        searches: [].concat(_toConsumableArray(state.searches), [{
-	          searchKey: action.searchKey,
-	          reverbsearchResults: action.reverbsearchResults
-	        }])
-	      });
-
-	    default:
-	      return state;
-	  }
-	}
-
-	exports.default = searches;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("c:\\jamocity\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "searches.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
+/* 188 */,
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -22712,14 +22664,6 @@
 	                { type: 'submit',
 	                    onClick: this.handleSubmit },
 	                'Enter User'
-	            ),
-	            _react2.default.createElement(
-	                _reactBootstrap.Label,
-	                null,
-	                ' state.currentProduct ',
-	                this.props.userName,
-	                ' state.searches ',
-	                this.props.searches.searches[0].searchKey
 	            )
 	        );
 	    }
@@ -22730,7 +22674,7 @@
 	var mapStateToProps = function mapStateToProps(state) {
 	    // This component will have access to `state.battlefield` through `this.props.battle`
 	    console.log("FormExample mapstatetoprops");
-	    console.log(state.currentProduct);
+	    console.log(state.searches);
 
 	    return { userName: state.currentProduct,
 	        searches: state.searches
@@ -41976,7 +41920,7 @@
 
 	        // iterate props.data object into an []
 	        //r.push({name: "fred", price :"13", href: "3"})
-	        r = this.props.data;
+	        //r = this.props.data
 	        console.log("now log r");
 	        console.log(r[0]);
 	        jcNodes = r.map(function (jcProd) {

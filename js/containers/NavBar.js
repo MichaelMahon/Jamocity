@@ -50,7 +50,6 @@ const NavBar = React.createClass({
                          onClick={this.handleSubmit}>Enter User
                     </Button>
 
-                    <Label> state.currentProduct {this.props.userName} state.searches {this.props.searches.searches[0].searchKey}</Label>
 
                 </Form>
 
@@ -61,7 +60,7 @@ const NavBar = React.createClass({
 var mapStateToProps = function(state){
     // This component will have access to `state.battlefield` through `this.props.battle`
      console.log("FormExample mapstatetoprops");
-    console.log(state.currentProduct)
+    console.log(state.searches)
 
     return {userName :state.currentProduct,
             searches: state.searches

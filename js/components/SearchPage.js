@@ -14,7 +14,7 @@ var SearchPageList = React.createClass({
 
         // iterate props.data object into an []
         //r.push({name: "fred", price :"13", href: "3"})
-        r = this.props.data
+        //r = this.props.data
         console.log("now log r")
         console.log(r[0]);
            jcNodes = r.map(function(jcProd) {

@@ -1,37 +1,39 @@
 
+// const search = (state = {}, action) => {
+//
+//       if (state.id !== action.id) {
+//         return state
+//       }
+//
+//       return Object.assign({}, state, {
+//         completed: !state.completed
+//       })
+//
+//     default:
+//       return state
+//   }
+// }
 
-function searches(state = {searches:[{searchKey:"fuzz", eBaysearchResults: {}, reverbsearchResults: {}}], currentsearch: {}}, action) {
+
+
+
+function searches(state = {searchKey:"fuzz", eBaysearchResults: {}, reverbsearchResults: {}}, action) {
+
   switch (action.type) {
     case 'RECEIVE_EBAY_POSTS':
-      return Object.assign({}, state, {
-        currentsearch: {
-          searchKey: action.searchKey,
-          eBaysearchResults: action.eBaysearchResults
-        },
-        searches: [
-          ...state.searches,
-          {
-            searchKey: action.searchKey,
-            eBaysearchResults: action.eBaysearchResults
-          }
-        ]
-      })
-
     case 'RECEIVE_REVERB_POSTS':
       return Object.assign({}, state, {
-        searches: [
-          ...state.searches,
-          {
-            searchKey: action.searchKey,
-            reverbsearchResults: action.reverbsearchResults
-          }
-        ]
+        searchKey: action.searchKey,
+        eBaysearchResults: action.eBaysearchResults,
+        reverbsearchResults: action.reverbsearchResults,
+
       })
 
     default:
       return state
   }
 }
+
 
 
 

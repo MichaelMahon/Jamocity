@@ -13,8 +13,7 @@ function posts(state = {
       })
     case 'REQUEST_POSTS':
       return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
+         didInvalidate: false
       })
     case 'RECEIVE_POSTS':
       return Object.assign({}, state, {
