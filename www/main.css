@@ -1,0 +1,31 @@
+.topPanel-body {
+    height: 10vh;
+}
+
+.listingPanel-body {
+    height: 80vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.searchPanel-body {
+    height: 80vh;
+}
+
+.bottomPanel-body {
+    height: 15vh;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.bgPic {
+    background-image: url("https://static.pexels.com/photos/849/people-festival-party-dancing.jpg");
+    background-size: 150vh;
+}

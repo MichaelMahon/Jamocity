@@ -11,8 +11,10 @@ const JCProd = ({ mfg, name, price, web, condition, href}) => (
                 </Media.Left>
                 <Media.Body>
                     <Media.Heading>{name}</Media.Heading>
-                        <p>By: {mfg}</p>
-                        <p>Condiition: {condition}</p>
+                        <p>By: {mfg} <br />
+                        Condiition: {condition}
+                        </p>
+                        <Image height={25} src={"/Img/2015-Reverb-Logo-Orange_rylykd.png"}/>
                 </Media.Body>
                 <Media.Right align="top">
                 <p>${price}</p>

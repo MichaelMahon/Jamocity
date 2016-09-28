@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
+import { fetchEbayPosts } from '../actions'
 
 let SearchPageForm = ({ dispatch }) => {
     let input
@@ -13,6 +14,7 @@ let SearchPageForm = ({ dispatch }) => {
                     return
                 }
                 dispatch(fetchPosts(input.value))
+                dispatch(fetchEbayPosts(input.value))
                 input.value = ''
             }}>
                 <button type="submit">
