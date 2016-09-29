@@ -2,30 +2,61 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import { fetchEbayPosts } from '../actions'
+import { setSortOrder } from '../actions'
+import { Grid, Row, Col, Checkbox, Radio, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
 
 let SearchPageForm = ({ dispatch }) => {
     let input
 
-    return (
-        <div>
-            <form onSubmit={e => {
-                e.preventDefault()
-                if (!input.value.trim()) {
+    function handleClick(e) {
+            e.preventDefault()
+                if (!searchBox.value.trim()) {
                     return
                 }
-                dispatch(fetchPosts(input.value))
-                dispatch(fetchEbayPosts(input.value))
-                input.value = ''
-            }}>
-                <button type="submit">
-                    Search for Product
-                </button>
-                <input ref={node => {
-                    input = node
-                }} />
+                
+                dispatch(setSortOrder(sortOpt.value))
+                if(showReverb.checked) dispatch(fetchPosts(searchBox.value))
+                if(showEbay.checked) dispatch(fetchEbayPosts(searchBox.value))
+    }
 
-            </form>
-        </div>
+    return (
+        <Form inline>
+                {' '}
+                <FormGroup controlId="searchBox">
+                    <FormControl type="text" placeholder="Search!"/>
+                </FormGroup>
+                <h3>Search Options </h3>
+                <Row>
+                    <Col md={6}>
+                        <Checkbox id="showReverb" defaultChecked>
+                            Reverb
+                        </Checkbox>
+                    </Col>
+                    <Col md={6}>
+                        <Checkbox id="showEbay" defaultChecked>
+                            Ebay
+                        </Checkbox>
+                    </Col>
+                </Row>
+                <h3>Sort</h3>
+                <FormControl id="sortOpt" componentClass="select" placeholder="A-Z">
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                    <option value="H-L">Price (Highest)</option>
+                    <option value="L-H">Price (Lowest)</option>
+
+                </FormControl>
+                <Row>
+                    <Col md={6}></Col>
+                    <br />
+                    <Col md={6}>
+                        <Button onClick={handleClick} type="submit">
+                            Search
+                        </Button>
+                    </Col>
+                </Row>
+
+            </Form>
     )
 }
 SearchPageForm = connect()(SearchPageForm)
