@@ -35,26 +35,17 @@ if(state.currentSearch.sort === 'A-Z') {
 	});
 }
 
+var x;
+for(x in items) {
+	items[x].price = parseFloat(items[x].price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
 return {
 	dataString: JSON.stringify(state.currentSearch.items),
 	dataObj: items
 
 }
 }
-
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     active: ownProps.filter === state.visibilityFilter
-//   }
-// }\
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     onClick: () => {
-//       dispatch(setVisibilityFilter(ownProps.filter))
-//     }
-//   }
-// }
 
 const SearchPageContainer = connect(
 	mapStateToProps
