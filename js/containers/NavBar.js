@@ -28,9 +28,17 @@ const NavBar = React.createClass({
         return (
             <Grid>
                 <Row>
-                    <Col md={2}>
+                    <Col md={4}>
                          <Image src="/Img/JamoCity.png" height={60}/>
                     </Col>
+                    <Col md={8}>
+                        <Row>
+                        <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
+                        </Row>
+                        <Row>
+                            <em><small>It's so easy - no logon needed! - Lenny M</small></em>
+                        </Row>
+                   </Col>
                 </Row>
             </Grid>
 
