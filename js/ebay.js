@@ -11,13 +11,14 @@ export function ebayListings2JC(listingObj) {
         JCProd.price = listing.sellingStatus["0"].convertedCurrentPrice["0"].__value__;
         JCProd.href = listing.galleryURL[0];
         JCProd.web = listing.viewItemURL[0];
-        JCProd.condition = listing.condition["0"].conditionDisplayName["0"]
+        JCProd.condition = listing.condition["0"].conditionDisplayName["0"];
+        JCProd.source = "ebay";
 
         console.log("ebay prod " + JCProd);
         JCProdArray.push(JCProd);
 
     }
-    return (JCProd);
+    return (JCProdArray);
 
 }
 

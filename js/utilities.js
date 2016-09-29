@@ -40,6 +40,7 @@ export function reverbListings2JC(listingObj) {
         JCProd.href = listing._links.photo.href;
         JCProd.web = listing._links.web.href;
         JCProd.condition = listing.condition;
+        JCProd.source = "reverb";
 
         JCProdArray.push(JCProd);
 

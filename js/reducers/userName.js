@@ -14,13 +14,14 @@ function posts(state = {
     case 'REQUEST_POSTS':
       return Object.assign({}, state, {
         isFetching: true,
-        didInvalidate: false
+        didInvalidate: false,
+        items: []
       })
     case 'RECEIVE_POSTS':
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: items += action.posts,
+        items: state.items.concat(action.posts),
         lastUpdated: action.receivedAt
       })
     default:

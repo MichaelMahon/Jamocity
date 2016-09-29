@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Grid, Row, Col, Image, Media, Button} from 'react-bootstrap';
 
-const JCProd = ({ mfg, name, price, web, condition, href}) => (
+const JCProd = ({ mfg, name, price, web, source, condition, href}) => (
     <Grid>
         <Row>
             <Col xs={6} md={8}>
@@ -13,8 +13,9 @@ const JCProd = ({ mfg, name, price, web, condition, href}) => (
                     <Media.Heading>{name}</Media.Heading>
                         <p>By: {mfg} <br />
                         Condiition: {condition}
+                        Source: {source}
                         </p>
-                        <Image height={25} src={"/Img/2015-Reverb-Logo-Orange_rylykd.png"}/>
+                        <Image height={25} src={source === "reverb" ? "/Img/2015-Reverb-Logo-Orange_rylykd.png" : "/Img/ebay-logo-7color1 copy.png"}/>
                 </Media.Body>
                 <Media.Right align="top">
                 <p>${price}</p>

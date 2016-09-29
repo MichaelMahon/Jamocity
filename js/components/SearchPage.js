@@ -21,7 +21,7 @@ var SearchPageList = React.createClass({
      return (
 
          <ListGroupItem >
-            <JCProd key={jcProd.id} mfg={jcProd.mfg} name={jcProd.name} web={jcProd.web} price={jcProd.price} condition= {jcProd.condition} href = {jcProd.href ? jcProd.href : "./photo_not_available.png"}/>
+            <JCProd key={jcProd.id} mfg={jcProd.mfg} name={jcProd.name} web={jcProd.web} source={jcProd.source} price={jcProd.price} condition= {jcProd.condition} href = {jcProd.href ? jcProd.href : "./photo_not_available.png"}/>
          </ListGroupItem>
      );
    });
