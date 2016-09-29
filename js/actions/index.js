@@ -1,6 +1,6 @@
 
 import fetch from 'isomorphic-fetch'
-import fetchJsonp from 'fetch-jsonp';  
+import fetchJsonp from 'fetch-jsonp';
 import reverbListings2JC from '../utilities.js'
 import ebayListings2JC from '../ebay.js'
 
@@ -25,10 +25,16 @@ export const addSearch = (searchKey, searchResults) => {
 }
 
 export const setSort = (sortOrder) => {
-  console.log(sortOrder)
   return {
     type: 'SET_SORT',
     sort: sortOrder
+  }
+}
+
+export const setHistory = (newSearch) => {
+  return {
+    type: 'SET_HISTORY',
+    newSearch: newSearch
   }
 }
 
@@ -58,8 +64,7 @@ function requestPosts(subreddit, sortOrder) {
 
 //export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 function receivePosts(subreddit, json) {
-  console.log("receivePosts Entry");
-   var JCPosts = reverbListings2JC(json.listings);
+  var JCPosts = reverbListings2JC(json.listings);
 
   return {
     type: 'RECEIVE_POSTS',
@@ -77,18 +82,17 @@ export function fetchPosts(product) {
 
   return function (dispatch) {
 
-    console.log("fetchPosts before requestPosts");
 
     dispatch(requestPosts(product))
 
     var queryUrl = REVERB_QUERY.replace('%PROD%', product);  // TODO urlencode product
 
     return fetch(queryUrl)
-        .then(response => response.json())
-        .then(json =>
+      .then(response => response.json())
+      .then(json =>
 
-    dispatch(receivePosts(product, json))
-        )
+        dispatch(receivePosts(product, json))
+      )
   }
 }
 
@@ -96,7 +100,6 @@ export function fetchEbayPosts(product) {
 
   return function (dispatch) {
 
-    console.log("fetchPosts before requestPosts ebay");
 
     dispatch(requestPosts(product))
 
@@ -112,9 +115,7 @@ export function fetchEbayPosts(product) {
 }
 
 function receiveEbayPosts(product, json) {
-  console.log("receivePosts Entry ebay");
-   var EBPosts = ebayListings2JC(json);
-   console.log(EBPosts);
+  var EBPosts = ebayListings2JC(json);
 
   return {
     type: 'RECEIVE_POSTS',
@@ -122,11 +123,17 @@ function receiveEbayPosts(product, json) {
     posts: EBPosts,
     receivedAt: Date.now()
   }
-  
+
 }
 
 export function setSortOrder(order) {
   return function (dispatch) {
-  dispatch(setSort(order))
+    dispatch(setSort(order))
+  }
 }
+
+export function setNewHistory(newSearch) {
+  return function (dispatch) {
+    dispatch(setHistory(newSearch))
+  }
 }

@@ -17,12 +17,12 @@ const App = () => (
     <Grid>
         <Row>
             <Col md={12}>
-            <Panel bsClass="panel navPanel"><h3><NavBar/></h3></Panel>
+                    <Panel bsClass="panel navPanel"><h3><NavBar/></h3></Panel>
             </Col>
         </Row>
         <Row>
              <Col xs={2} md={3}>
-                    <Panel bsClass="panel searchPane"><SearchPageForm/></Panel>
+                    <Panel bsClass="panel searchPanel"><SearchPageForm/></Panel>
              </Col>
              <Col xs={4} md={9}>
                     <Panel bsClass="panel listingPanel"><SearchPageContainer/></Panel>
