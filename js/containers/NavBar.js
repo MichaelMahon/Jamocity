@@ -14,7 +14,7 @@ const NavBar = React.createClass({
         this.props.username(e.target.value)
     },
 
-    handleSubmit(e) {
+    handleSubmit() {
         e.preventDefault();
         // put some search keys in searchPanel
         this.props.addSearch("keeley", {})
@@ -42,8 +42,6 @@ const NavBar = React.createClass({
 
 var mapStateToProps = function(state){
     // This component will have access to `state.battlefield` through `this.props.battle`
-     console.log("FormExample mapstatetoprops");
-    console.log(state.currentProduct)
 
     return {userName :state.currentProduct,
             searches: state.searches

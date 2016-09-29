@@ -1,5 +1,6 @@
-.navPanel {
+.navPanel-body {
     padding: 0px;
+    margin-bottom: 0px;
 }
 
 .listingPanel-body {
@@ -9,15 +10,11 @@
 }
 
 .searchPanel-body {
-    height: 75vh;
-}
-
-.bottomPanel-body {
-    height: 15vh;
+    padding: 0px;
+    margin-bottom: 0px;
 }
 
 .panel {
-  margin-bottom: 20px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -29,4 +26,5 @@
 .bgPic {
     background-image: url("/Img/bgImg.jpg");
     background-size:100% auto;
+
 }

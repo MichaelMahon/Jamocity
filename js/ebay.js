@@ -1,7 +1,6 @@
 export function ebayListings2JC(listingObj) {
     var JCProdArray = [];
 
-    console.log(listingObj);
 
     for (var key in listingObj) {
         var listing = listingObj[key];
@@ -14,7 +13,6 @@ export function ebayListings2JC(listingObj) {
         JCProd.condition = listing.condition["0"].conditionDisplayName["0"];
         JCProd.source = "ebay";
 
-        console.log("ebay prod " + JCProd);
         JCProdArray.push(JCProd);
 
     }

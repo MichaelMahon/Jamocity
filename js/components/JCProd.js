@@ -11,9 +11,7 @@ const JCProd = ({ mfg, name, price, web, source, condition, href}) => (
                 </Media.Left>
                 <Media.Body>
                     <Media.Heading>{name}</Media.Heading>
-                        <p>By: {mfg} <br />
-                        Condition: {condition}
-                        </p>
+                        {mfg ? <p>By: {mfg} <br />Condition: {condition}</p> : <p>Condition: {condition}</p>}
                         <Image height={25} src={source === "reverb" ? "/Img/2015-Reverb-Logo-Orange_rylykd.png" : "/Img/ebay-logo-7color1 copy.png"}/>
                 </Media.Body>
                 <Media.Right align="top">

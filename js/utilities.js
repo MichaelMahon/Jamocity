@@ -18,7 +18,6 @@ export function ebayListings2JC(listingObj) {
         JCProd.web = item.viewItemURL;
         JCProd.condition = item.condition.conditionDisplayName;
 
-        console.log("ebay prod " + JCProd);
         JCProdArray.push(JCProd);
 
     }

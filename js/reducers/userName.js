@@ -5,6 +5,7 @@ function posts(state = {
   isFetching: false,
   didInvalidate: false,
   sort: "AZ",
+  searchHistory: [],
   items: []
 }, action) {
   switch (action.type) {
@@ -15,6 +16,18 @@ function posts(state = {
     case 'SET_SORT':
       return Object.assign({}, state, {
         sort: action.sort
+      })
+    case 'SET_HISTORY':
+      var newSearchHistory = state.searchHistory
+      if (newSearchHistory.length === 3) {
+            newSearchHistory.shift()
+            newSearchHistory.push(action.newSearch);
+        } else {
+            newSearchHistory.push(action.newSearch);
+        }
+        console.log(newSearchHistory);
+        return Object.assign({}, state, {
+        searchHistory: newSearchHistory
       })
     case 'REQUEST_POSTS':
       return Object.assign({}, state, {
