@@ -13,7 +13,7 @@ export function ebayListings2JC(listingObj) {
         var JCProd = new Object();
         JCProd.id = item.itemId;
         JCProd.name = item.title[0];
-        JCProd.price = item.sellingStatus.convertedCurrentPrice;
+        JCProd.price = parseFloat(item.sellingStatus.convertedCurrentPrice).toFixed(2);
         JCProd.href = item.galleryURL;
         JCProd.web = item.viewItemURL;
         JCProd.condition = item.condition.conditionDisplayName;

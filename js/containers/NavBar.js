@@ -26,33 +26,15 @@ const NavBar = React.createClass({
 
     render() {
         return (
+            <Grid>
+                <Row>
+                    <Col md={2}>
+                         <Image src="/Img/JamoCity.png" height={60}/>
+                    </Col>
+                </Row>
+            </Grid>
 
 
-                <Form inline>
-                    <Image src="/JC.png" thumbnail />
-
-                    {/*<FormGroup controlId="formInlineEmail">*/}
-                        {/*<ControlLabel>Email</ControlLabel>*/}
-                        {/*{' '}*/}
-                        {/*<FormControl type="email" placeholder="jane.doe@example.com" />*/}
-                    {/*</FormGroup>*/}
-                    {' '}
-
-                    <FormGroup controlId="formInlineName">
-                        <ControlLabel>User Name</ControlLabel>
-                        {' '}
-                        <FormControl type="text" placeholder={this.props.userName} onChange={this.handleUserNameChange}
-                        />
-                    </FormGroup>
-                    {' '}
-
-                    <Button type="submit"
-                         onClick={this.handleSubmit}>Enter User
-                    </Button>
-
-                    <Label> state.currentProduct {this.props.userName} state.searches {this.props.searches.searches[0].searchKey}</Label>
-
-                </Form>
 
         );
     }

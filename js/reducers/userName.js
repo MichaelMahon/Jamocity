@@ -13,7 +13,6 @@ function posts(state = {
         didInvalidate: true
       })
     case 'SET_SORT':
-    console.log("TESTTTTTT")
       return Object.assign({}, state, {
         sort: action.sort
       })

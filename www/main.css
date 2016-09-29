@@ -1,5 +1,5 @@
-.topPanel-body {
-    height: 10vh;
+.navPanel {
+    padding: 0px;
 }
 
 .listingPanel-body {
@@ -21,11 +21,12 @@
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
+  padding: 5px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .bgPic {
-    background-image: url("https://static.pexels.com/photos/849/people-festival-party-dancing.jpg");
-    background-size: 150vh;
+    background-image: url("/Img/bgImg.jpg");
+    background-size:100% auto;
 }
