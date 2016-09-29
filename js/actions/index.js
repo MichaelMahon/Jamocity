@@ -55,8 +55,9 @@ function receivePosts(searchKey, json) {
 
   return {
     type: 'RECEIVE_REVERB_POSTS',
-    searchKey: searchKey,
-    reverbsearchResults: JCPosts
+    payload: {
+      searchKey: searchKey,
+      reverbsearchResults: JCPosts}
   }
 }
 
@@ -109,8 +110,10 @@ function receiveEbayPosts(product, json) {
 
   return {
     type: 'RECEIVE_EBAY_POSTS',
-    searchKey: product,
-    eBaysearchResults: EBPosts
+    payload: {
+      searchKey: product,
+      eBaysearchResults: EBPosts
+    }
   }
   
 }

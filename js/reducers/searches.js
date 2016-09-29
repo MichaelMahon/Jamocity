@@ -1,4 +1,8 @@
 
+import { List, Map } from 'immutable';
+import { fromJS } from 'immutable';
+
+
 // const search = (state = {}, action) => {
 //
 //       if (state.id !== action.id) {
@@ -14,20 +18,22 @@
 //   }
 // }
 
+// return {
+//   type: 'RECEIVE_EBAY_POSTS',
+//   searchKey: product,
+//   eBaysearchResults: EBPosts
+// }
+const init = List([]);
 
-
-
-function searches(state = {searchKey:"fuzz", eBaysearchResults: {}, reverbsearchResults: {}}, action) {
+//https://www.sitepoint.com/how-to-build-a-todo-app-using-react-redux-and-immutable-js/
+function searches(state = init, action) {
 
   switch (action.type) {
     case 'RECEIVE_EBAY_POSTS':
-    case 'RECEIVE_REVERB_POSTS':
-      return Object.assign({}, state, {
-        searchKey: action.searchKey,
-        eBaysearchResults: action.eBaysearchResults,
-        reverbsearchResults: action.reverbsearchResults,
+      return state.push(fromJS(action.payload));
 
-      })
+    case 'RECEIVE_REVERB_POSTS':
+      return state.push(fromJS(action.payload));
 
     default:
       return state

@@ -60,7 +60,24 @@ const NavBar = React.createClass({
 var mapStateToProps = function(state){
     // This component will have access to `state.battlefield` through `this.props.battle`
      console.log("FormExample mapstatetoprops");
-    console.log(state.searches)
+    console.log(state.searches.size)
+    //console.log(state.searches.first().)
+    // just look at first item in state list - will be either ebay or reverb for now
+    var payloadMap = state.searches.first();
+    console.log(payloadMap);
+    if(payloadMap) {
+        console.log(payloadMap.get('searchKey'))
+        console.log('showing any eBaysearchResults')
+        if(payloadMap.get('eBaysearchResults')) {
+            console.log(payloadMap.get('eBaysearchResults').first().get('name'))
+        }
+        console.log('showing any reverbsearchResults')
+        if(payloadMap.get('reverbsearchResults')) {
+            console.log(payloadMap.get('reverbsearchResults').first())
+        }
+    }
+
+    // how to get the array out of the list
 
     return {userName :state.currentProduct,
             searches: state.searches
