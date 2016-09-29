@@ -5,6 +5,7 @@ function posts(state = {
   isFetching: false,
   didInvalidate: false,
   sort: "AZ",
+  previousSearches: [],
   items: []
 }, action) {
   switch (action.type) {
@@ -13,7 +14,6 @@ function posts(state = {
         didInvalidate: true
       })
     case 'SET_SORT':
-    console.log("TESTTTTTT")
       return Object.assign({}, state, {
         sort: action.sort
       })
@@ -24,6 +24,8 @@ function posts(state = {
         items: []
       })
     case 'RECEIVE_POSTS':
+    console.log("ITEMSSSS" + state.items.length)
+    var searches = state.items.length === 48 ? [...state.previousSearches, state.items] : state.previousSearches
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,

@@ -32,6 +32,13 @@ export const setSort = (sortOrder) => {
   }
 }
 
+export const saveSearch = () => {
+    console.log("HERE")
+  return {
+    type: 'SAVE_SEARCH'
+  }
+}
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
@@ -130,3 +137,12 @@ export function setSortOrder(order) {
   dispatch(setSort(order))
 }
 }
+
+export function saveSearchHistory() {
+  return function (dispatch) {
+    dispatch(saveSearch())
+  }
+}
+
+
+

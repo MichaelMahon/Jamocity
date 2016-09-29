@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import { fetchEbayPosts } from '../actions'
 import { setSortOrder } from '../actions'
+import { saveSearchHistory } from '../actions'
 import { Grid, Row, Col, Checkbox, Radio, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
 
 let SearchPageForm = ({ dispatch }) => {
@@ -17,6 +18,7 @@ let SearchPageForm = ({ dispatch }) => {
                 dispatch(setSortOrder(sortOpt.value))
                 if(showReverb.checked) dispatch(fetchPosts(searchBox.value))
                 if(showEbay.checked) dispatch(fetchEbayPosts(searchBox.value))
+                dispatch(saveSearchHistory)
     }
 
     return (
