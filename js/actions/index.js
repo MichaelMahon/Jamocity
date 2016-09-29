@@ -24,6 +24,14 @@ export const addSearch = (searchKey, searchResults) => {
   }
 }
 
+export const setSort = (sortOrder) => {
+  console.log(sortOrder)
+  return {
+    type: 'SET_SORT',
+    sort: sortOrder
+  }
+}
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
@@ -40,9 +48,10 @@ export const toggleTodo = (id) => {
 
 
 //export const REQUEST_POSTS = 'REQUEST_POSTS'
-function requestPosts(subreddit) {
+function requestPosts(subreddit, sortOrder) {
   return {
     type: 'REQUEST_POSTS',
+    sort: sortOrder,
     subreddit
   }
 }
@@ -114,4 +123,10 @@ function receiveEbayPosts(product, json) {
     receivedAt: Date.now()
   }
   
+}
+
+export function setSortOrder(order) {
+  return function (dispatch) {
+  dispatch(setSort(order))
+}
 }

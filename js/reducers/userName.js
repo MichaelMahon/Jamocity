@@ -4,12 +4,18 @@
 function posts(state = {
   isFetching: false,
   didInvalidate: false,
+  sort: "AZ",
   items: []
 }, action) {
   switch (action.type) {
     case 'INVALIDATE_SUBREDDIT':
       return Object.assign({}, state, {
         didInvalidate: true
+      })
+    case 'SET_SORT':
+    console.log("TESTTTTTT")
+      return Object.assign({}, state, {
+        sort: action.sort
       })
     case 'REQUEST_POSTS':
       return Object.assign({}, state, {
