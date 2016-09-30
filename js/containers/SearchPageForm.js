@@ -9,12 +9,20 @@ import { Grid, Row, Col, Checkbox, Radio, Image, FormGroup, ControlLabel, HelpBl
 const SearchPageForm = React.createClass({
 
 
-    doSearch() {
-        console.log(this.props.currentSearch.searchHistory)
-        if(!this.props.currentSearch.searchHistory.includes(searchBox.value)) this.props.history(searchBox.value)
-        this.props.sort(sortOpt.value)
-        if (showReverb.checked) this.props.reverbSearch(searchBox.value)
-        if (showEbay.checked) this.props.ebaySearch(searchBox.value)
+    doSearch(search) {
+        if(!this.props.currentSearch.searchHistory.includes(JSON.stringify(search))) this.props.history(JSON.stringify(search))
+        this.props.sort(search.sort)
+        if (search.reverb) this.props.reverbSearch(search.keyWord)
+        if (search.ebay) this.props.ebaySearch(search.keyWord)
+    },
+
+    redoSearch(search) {
+        this.doSearch(search);
+
+        searchBox.value = search.keyWord;
+        showEbay.checked = search.ebay;
+        showReverb.checked = search.reverb;
+        sortOpt.value = search.sort;
     },
 
     handleClick(e) {
@@ -23,7 +31,14 @@ const SearchPageForm = React.createClass({
             return
         }
 
-        this.doSearch();
+        var search = {
+            keyWord : searchBox.value,
+            ebay : showEbay.checked,
+            reverb : showReverb.checked,
+            sort : sortOpt.value
+        }
+
+        this.doSearch(search);
     },
 
 
@@ -33,7 +48,7 @@ const SearchPageForm = React.createClass({
             <Form inline>
             {' '}
             <FormGroup controlId="searchBox">
-                <FormControl type="text" placeholder="Search!"/>
+                <FormControl bsClass="text searchBox" type="text" placeholder="Search!"/>
             </FormGroup>
             <h3>Search Options </h3>
             <Row>
@@ -65,12 +80,16 @@ const SearchPageForm = React.createClass({
                     </Button>
                 </Col>
             </Row>
+            <h3>Previous Searches</h3>
             <Row>
                 <Col md={6}>
-                    <h1>{this.props.currentSearch.searchHistory[0]}</h1>
-                    <h1>{this.props.currentSearch.searchHistory[1]}</h1>
-                    <h1>{this.props.currentSearch.searchHistory[2]}</h1>
-                    
+                    <ListGroup bsClass="list-group searchList">
+                        {this.props.currentSearch.searchHistory[4] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[4]))}} header={JSON.parse(this.props.currentSearch.searchHistory[4]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[4]).sort}</ListGroupItem> : ""}
+                        {this.props.currentSearch.searchHistory[3] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[3]))}} header={JSON.parse(this.props.currentSearch.searchHistory[3]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[3]).sort}</ListGroupItem> : ""}
+                        {this.props.currentSearch.searchHistory[2] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[2]))}} header={JSON.parse(this.props.currentSearch.searchHistory[2]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[2]).sort}</ListGroupItem> : ""}
+                        {this.props.currentSearch.searchHistory[1] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[1]))}} header={JSON.parse(this.props.currentSearch.searchHistory[1]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[1]).sort}</ListGroupItem> : ""}
+                        {this.props.currentSearch.searchHistory[0] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[0]))}} header={JSON.parse(this.props.currentSearch.searchHistory[0]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[0]).sort}</ListGroupItem> : ""}
+                    </ListGroup>
                 </Col>
             </Row>
 
@@ -84,7 +103,7 @@ var mapDispatchToProps = function(dispatch){
         reverbSearch: function(newSearch){ dispatch(fetchPosts(newSearch)); },
         ebaySearch: function(newSearch){ dispatch(fetchEbayPosts(newSearch)); },
         sort: function(newSort){dispatch(setSortOrder(newSort));},
-        history: function(newSearch){dispatch(setNewHistory(searchBox.value));}
+        history: function(newSearch){dispatch(setNewHistory(newSearch));}
     }
 };
 
