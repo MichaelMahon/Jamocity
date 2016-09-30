@@ -4,7 +4,7 @@
 }
 
 .listingPanel-body {
-    height: 75vh;
+    height: 76vh;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -24,7 +24,16 @@
 }
 
 .bgPic {
-    background-image: url("/Img/bgImg.jpg");
-    background-size:100% auto;
+    background-image: url("/Img/bgImg2.jpg");  
+    background-size: cover; 
 
+}
+
+.searchList {
+  width: 225px;
+}
+
+.searchBox {
+  width: 225px;
+  height: 30px;
 }

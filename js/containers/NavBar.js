@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 //import { addTodo } from '../actions'
 import { loadProducts } from '../actions'
 import { addSearch } from '../actions'
-import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label} from 'react-bootstrap';
+import { Grid, Row, Col, Image, FormGroup, ControlLabel, HelpBlock, FormControl, Form, Button, Label, Carousel} from 'react-bootstrap';
 
 
 const NavBar = React.createClass({
@@ -26,25 +26,41 @@ const NavBar = React.createClass({
 
     render() {
         return (
+
             <Grid>
                 <Row>
                     <Col md={4}>
-                         <Image src="/Img/JamoCity.png" height={60}/>
+                        <Image src="/Img/JamoCity.png" height={80}/>
                     </Col>
-                    <Col md={8}>
-                        <Row>
-                        <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
-                        </Row>
-                        <Row>
+                    <Col md={1}></Col>
+                    <Col md={7}>
+                
+                    <Carousel controls={false} indicators={false} interval={7500}>
+                        <Carousel.Item>
+                            <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
+                        </Carousel.Item>
+                        <Carousel.Item>
                             <em><small>It's so easy - no logon needed! - Lenny M</small></em>
-                        </Row>
-                   </Col>
+                        </Carousel.Item>
+                    </Carousel>
+                
+                
+                    <Carousel controls={false} indicators={false} interval={10000}>
+                        <Carousel.Item>
+                            <em><small>It's so easy - no logon needed! - Lenny M</small></em>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
+                        </Carousel.Item>
+                    </Carousel>
+                
+                </Col>
                 </Row>
             </Grid>
 
 
 
-        );
+            );
     }
 });
 
