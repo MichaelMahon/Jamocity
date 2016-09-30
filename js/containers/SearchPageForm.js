@@ -47,10 +47,11 @@ const SearchPageForm = React.createClass({
         return (
             <Form inline>
             {' '}
+            <h3>Search</h3>
             <FormGroup controlId="searchBox">
                 <FormControl bsClass="text searchBox" type="text" placeholder="Search!"/>
             </FormGroup>
-            <h3>Search Options </h3>
+            <h3>Options </h3>
             <Row>
                 <Col md={6}>
                     <Checkbox id="showReverb" defaultChecked>

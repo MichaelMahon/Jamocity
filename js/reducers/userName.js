@@ -19,7 +19,7 @@ function posts(state = {
       })
     case 'SET_HISTORY':
       var newSearchHistory = state.searchHistory
-      if (newSearchHistory.length === 5) {
+      if (newSearchHistory.length === 4) {
             newSearchHistory.shift()
             newSearchHistory.push(action.newSearch);
         } else {
