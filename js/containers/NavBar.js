@@ -33,7 +33,7 @@ const NavBar = React.createClass({
                         <Image src="/Img/JamoCity.png" height={80}/>
                     </Col>
                     <Col md={1}></Col>
-                    <Col md={7}>
+                    <Col md={6}>
                 
                     <Carousel controls={false} indicators={false} interval={7500}>
                         <Carousel.Item>
