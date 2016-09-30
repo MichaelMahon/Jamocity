@@ -81,11 +81,10 @@ const SearchPageForm = React.createClass({
                     </Button>
                 </Col>
             </Row>
-            <h3>Previous Searches</h3>
+            {this.props.currentSearch.searchHistory.length != 0 ? <h3>Previous Searches</h3> : ""}
             <Row>
                 <Col md={6}>
                     <ListGroup bsClass="list-group searchList">
-                        {this.props.currentSearch.searchHistory[4] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[4]))}} header={JSON.parse(this.props.currentSearch.searchHistory[4]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[4]).sort}</ListGroupItem> : ""}
                         {this.props.currentSearch.searchHistory[3] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[3]))}} header={JSON.parse(this.props.currentSearch.searchHistory[3]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[3]).sort}</ListGroupItem> : ""}
                         {this.props.currentSearch.searchHistory[2] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[2]))}} header={JSON.parse(this.props.currentSearch.searchHistory[2]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[2]).sort}</ListGroupItem> : ""}
                         {this.props.currentSearch.searchHistory[1] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[1]))}} header={JSON.parse(this.props.currentSearch.searchHistory[1]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[1]).sort}</ListGroupItem> : ""}
