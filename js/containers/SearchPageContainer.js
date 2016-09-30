@@ -23,12 +23,12 @@ if(state.currentSearch.sort === 'A-Z') {
  			return 1;
  		return 0; //default return value (no sorting)
 		});
-} else if(state.currentSearch.sort === 'H-L') {
+} else if(state.currentSearch.sort === 'Price (Highest)') {
 	items.sort(function(a,b){
 		var priceA = a.price, priceB=b.price;
     return priceB - priceA
 	});
-} else if(state.currentSearch.sort === 'L-H') {
+} else if(state.currentSearch.sort === 'Price (Lowest)') {
 	items.sort(function(a,b){
 		var priceA = a.price, priceB=b.price;
     return priceA - priceB

@@ -68,8 +68,8 @@ const SearchPageForm = React.createClass({
             <FormControl id="sortOpt" componentClass="select" placeholder="A-Z">
                 <option value="A-Z">A-Z</option>
                 <option value="Z-A">Z-A</option>
-                <option value="H-L">Price (Highest) </option>
-                <option value="L-H">Price (Lowest) </option>
+                <option value="Price (Highest)">Price (Highest) </option>
+                <option value="Price (Lowest)">Price (Lowest) </option>
 
             </FormControl>
             <Row>
