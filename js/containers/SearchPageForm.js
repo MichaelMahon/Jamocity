@@ -48,9 +48,13 @@ const SearchPageForm = React.createClass({
             <Form inline>
             {' '}
             <h3>Search</h3>
+            <Row>
             <FormGroup controlId="searchBox">
-                <FormControl bsClass="text searchBox" type="text" placeholder="Search!"/>
+            <Col md={12}>
+                <FormControl  type="text" placeholder="Search!"/>
+            </Col>
             </FormGroup>
+             </Row>
             <h3>Options </h3>
             <Row>
                 <Col md={6}>
@@ -83,7 +87,7 @@ const SearchPageForm = React.createClass({
             </Row>
             {this.props.currentSearch.searchHistory.length != 0 ? <h3>Previous Searches</h3> : ""}
             <Row>
-                <Col md={6}>
+                <Col md={12}>
                     <ListGroup bsClass="list-group searchList">
                         {this.props.currentSearch.searchHistory[4] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[4]))}} header={JSON.parse(this.props.currentSearch.searchHistory[4]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[4]).sort}</ListGroupItem> : ""}
                         {this.props.currentSearch.searchHistory[3] ? <ListGroupItem onClick={() => {this.redoSearch(JSON.parse(this.props.currentSearch.searchHistory[3]))}} header={JSON.parse(this.props.currentSearch.searchHistory[3]).keyWord}>Sorted: {JSON.parse(this.props.currentSearch.searchHistory[3]).sort}</ListGroupItem> : ""}
