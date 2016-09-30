@@ -25,7 +25,6 @@ function posts(state = {
         } else {
             newSearchHistory.push(action.newSearch);
         }
-        console.log(newSearchHistory);
         return Object.assign({}, state, {
         searchHistory: newSearchHistory
       })
