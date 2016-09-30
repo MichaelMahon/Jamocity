@@ -40,17 +40,17 @@ const NavBar = React.createClass({
                             <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <em><small>It's so easy - no logon needed! - Lenny M</small></em>
+                            <em><small>It's so easy - no logon needed! - Rod Stewart</small></em>
                         </Carousel.Item>
                     </Carousel>
                 
                 
                     <Carousel controls={false} indicators={false} interval={10000}>
                         <Carousel.Item>
-                            <em><small>It's so easy - no logon needed! - Lenny M</small></em>
+                            <em><small>Finally, something like Travelocity for music gear - Brian W</small></em>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <em><small>I always compare on Jamocity when I'm shopping gear - Angus Young</small></em>
+                            <em><small>Found my best deal on Jamocity! - Biz Markie</small></em>
                         </Carousel.Item>
                     </Carousel>
                 
